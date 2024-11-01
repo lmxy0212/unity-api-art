@@ -1,6 +1,7 @@
 using Newtonsoft.Json.Linq;
 using UnityEngine;
 
+
 namespace HuggingFace.API {
     public class TextToImageTask : TaskBase<string, Texture2D> {
         public override string taskName => "TextToImage";
