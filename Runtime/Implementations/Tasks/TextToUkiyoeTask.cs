@@ -30,9 +30,8 @@ namespace HuggingFace.API {
             }
         }
 
-        // New ExecuteTask method to simplify usage in other scripts
+        // Add this method to both TextToUkiyoeTask and TextToImageTask
         public async Task<Texture2D> ExecuteTask(string prompt) {
-            // Call the task asynchronously and handle the result
             object context = null;
             Texture2D result;
             string error;
@@ -45,5 +44,6 @@ namespace HuggingFace.API {
                 return null;
             }
         }
+
     }
 }
