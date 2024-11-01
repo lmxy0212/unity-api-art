@@ -1,6 +1,5 @@
 using Newtonsoft.Json.Linq;
 using UnityEngine;
-using System.Threading.Tasks;
 
 namespace HuggingFace.API {
     public class TextToUkiyoeTask : TaskBase<string, Texture2D> {
@@ -9,7 +8,7 @@ namespace HuggingFace.API {
 
         protected override string[] LoadBackupEndpoints() {
             return new string[] {
-                "https://api-inference.huggingface.co/models/another-backup-model" // Optional backup
+                "https://api-inference.huggingface.co/models/another-backup-model" // Add backup model if available
             };
         }
 
@@ -29,21 +28,5 @@ namespace HuggingFace.API {
                 return false;
             }
         }
-
-        // Add this method to both TextToUkiyoeTask and TextToImageTask
-        public async Task<Texture2D> ExecuteTask(string prompt) {
-            object context = null;
-            Texture2D result;
-            string error;
-
-            bool success = await RunAsync(prompt, context, out result, out error);
-            if (success) {
-                return result;
-            } else {
-                Debug.LogError("Image generation failed: " + error);
-                return null;
-            }
-        }
-
     }
 }
